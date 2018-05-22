@@ -50,24 +50,34 @@ const carousel = {
 
     const $title = document.createElement('h1')
     $title.classList.add('title')
+    $title.classList.add('shadow')
     $title.textContent = currentSlide.title
 
     const $sentence = document.createElement('h3')
     $sentence.classList.add('sentence')
+    $sentence.classList.add('shadow')
     $sentence.textContent = currentSlide.sentence
 
-    const $previous = document.createElement('button')
-    $previous.classList.add('previuos')
-    $previous.textContent = 'Previous'
+    const $advance = document.createElement('div')
+    $advance.classList.add('advance')
 
-    const $next = document.createElement('button')
-    $next.classList.add('next')
-    $next.textContent = 'Next'
+    const $previous = document.createElement('i')
+    $previous.classList.add('fa-angle-left')
+    $previous.classList.add('fas')
+    $previous.classList.add('fa-3x')
+    $previous.classList.add('shadow')
+
+    const $next = document.createElement('i')
+    $next.classList.add('fa-angle-right')
+    $next.classList.add('fas')
+    $next.classList.add('fa-3x')
+    $next.classList.add('shadow')
 
     $current.appendChild($title)
+    $current.appendChild($advance)
+    $advance.appendChild($previous)
+    $advance.appendChild($next)
     $current.appendChild($sentence)
-    $current.appendChild($previous)
-    $current.appendChild($next)
 
     this.$carousel.innerHTML = ''
     this.$carousel.appendChild($current)

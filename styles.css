@@ -12,6 +12,7 @@ body {
 }
 
 .current {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +21,6 @@ body {
   width: 50%;
   margin-top: 1rem;
   margin-left: 1rem;
-  background-image: url('images/image1.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -29,11 +29,30 @@ body {
   font-style: italic;
   text-align: center;
   color: rgb(245, 245, 245);
-  text-shadow: 2px 2px 3px black;
 }
 
 .sentence {
   text-align: center;
   color: rgb(245, 245, 245);
+}
+
+.advance {
+  width: 100%;
+  position: absolute;
+}
+
+.fa-angle-left {
+  float: left;
+  color: rgb(245, 245, 245);
+  margin-left: 1rem;
+}
+
+.fa-angle-right {
+  float: right;
+  color: rgb(245, 245, 245);
+  margin-right: 1rem;
+}
+
+.shadow {
   text-shadow: 2px 2px 3px black;
 }
