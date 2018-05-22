@@ -1,4 +1,6 @@
 const carousel = {
+  timerId: null,
+
   current: 0,
 
   $carousel: null,
@@ -30,6 +32,15 @@ const carousel = {
     }
   },
 
+  nextSlideLeft: function () {
+    if (this.current === 0) {
+      this.current = this.slides.length - 1
+    }
+    else {
+      this.current--
+    }
+  },
+
   renderSlide: function () {
     const $current = document.createElement('div')
     const currentSlide = this.slides[this.current]
@@ -39,27 +50,61 @@ const carousel = {
 
     const $title = document.createElement('h1')
     $title.classList.add('title')
+    $title.classList.add('shadow')
     $title.textContent = currentSlide.title
 
     const $sentence = document.createElement('h3')
     $sentence.classList.add('sentence')
+    $sentence.classList.add('shadow')
     $sentence.textContent = currentSlide.sentence
 
+    const $advance = document.createElement('div')
+    $advance.classList.add('advance')
+
+    const $previous = document.createElement('i')
+    $previous.classList.add('fa-angle-left')
+    $previous.classList.add('fas')
+    $previous.classList.add('fa-3x')
+    $previous.classList.add('shadow')
+
+    const $next = document.createElement('i')
+    $next.classList.add('fa-angle-right')
+    $next.classList.add('fas')
+    $next.classList.add('fa-3x')
+    $next.classList.add('shadow')
+
     $current.appendChild($title)
+    $current.appendChild($advance)
+    $advance.appendChild($previous)
+    $advance.appendChild($next)
     $current.appendChild($sentence)
 
     this.$carousel.innerHTML = ''
     this.$carousel.appendChild($current)
+
+    $previous.addEventListener('click', () => {
+      clearInterval(this.timerId)
+      this.nextSlideLeft()
+      this.renderSlide()
+      this.start(this.$carousel)
+    })
+
+    $next.addEventListener('click', () => {
+      clearInterval(this.timerId)
+      this.nextSlideRight()
+      this.renderSlide()
+      this.start(this.$carousel)
+    })
   },
 
   start: function ($element) {
     this.$carousel = $element
     this.renderSlide()
 
-    setInterval(() => {
+    this.timerId = setInterval(() => {
       this.renderSlide()
       this.nextSlideRight()
-    }, 5000)
+    }, 2000)
   }
 }
 
