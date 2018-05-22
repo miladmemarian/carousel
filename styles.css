@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.current {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 50%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background-image: url('images/image1.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.title {
+  font-style: italic;
+  text-align: center;
+  color: rgb(245, 245, 245);
+  text-shadow: 2px 2px 3px black;
+}
+
+.sentence {
+  text-align: center;
+  color: rgb(245, 245, 245);
+  text-shadow: 2px 2px 3px black;
+}
