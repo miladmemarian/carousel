@@ -1,5 +1,5 @@
 const carousel = {
-  current: 1,
+  current: 0,
 
   $carousel: null,
 
@@ -37,11 +37,11 @@ const carousel = {
     $current.classList.add('current')
     $current.style.backgroundImage = `url("Images/${currentSlide.source}")`
 
-    const $title = document.createElement('div')
+    const $title = document.createElement('h1')
     $title.classList.add('title')
     $title.textContent = currentSlide.title
 
-    const $sentence = document.createElement('div')
+    const $sentence = document.createElement('h3')
     $sentence.classList.add('sentence')
     $sentence.textContent = currentSlide.sentence
 
@@ -54,11 +54,12 @@ const carousel = {
 
   start: function ($element) {
     this.$carousel = $element
+    this.renderSlide()
 
     setInterval(() => {
       this.renderSlide()
       this.nextSlideRight()
-    }, 2000)
+    }, 5000)
   }
 }
 
