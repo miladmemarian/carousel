@@ -1,4 +1,6 @@
 const carousel = {
+  timerId: null,
+
   current: 0,
 
   $carousel: null,
@@ -30,6 +32,15 @@ const carousel = {
     }
   },
 
+  nextSlideLeft: function () {
+    if (this.current === 0) {
+      this.current = this.slides.length - 1
+    }
+    else {
+      this.current--
+    }
+  },
+
   renderSlide: function () {
     const $current = document.createElement('div')
     const currentSlide = this.slides[this.current]
@@ -45,21 +56,45 @@ const carousel = {
     $sentence.classList.add('sentence')
     $sentence.textContent = currentSlide.sentence
 
+    const $previous = document.createElement('button')
+    $previous.classList.add('previuos')
+    $previous.textContent = 'Previous'
+
+    const $next = document.createElement('button')
+    $next.classList.add('next')
+    $next.textContent = 'Next'
+
     $current.appendChild($title)
     $current.appendChild($sentence)
+    $current.appendChild($previous)
+    $current.appendChild($next)
 
     this.$carousel.innerHTML = ''
     this.$carousel.appendChild($current)
+
+    $previous.addEventListener('click', () => {
+      clearInterval(this.timerId)
+      this.nextSlideLeft()
+      this.renderSlide()
+      this.start(this.$carousel)
+    })
+
+    $next.addEventListener('click', () => {
+      clearInterval(this.timerId)
+      this.nextSlideRight()
+      this.renderSlide()
+      this.start(this.$carousel)
+    })
   },
 
   start: function ($element) {
     this.$carousel = $element
     this.renderSlide()
 
-    setInterval(() => {
+    this.timerId = setInterval(() => {
       this.renderSlide()
       this.nextSlideRight()
-    }, 5000)
+    }, 2000)
   }
 }
 
