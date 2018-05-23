@@ -6,12 +6,13 @@ $grey: rgb(80, 80, 80);
 }
 
 body {
-  height: 100vh;
+  height: 960px;
+  width: 960px;
 }
 
 .carousel {
-  height: 70%;
-  width: 50%;
+  height: 60%;
+  width: 80%;
   transition: background-image 1s ease-in-out;
   background-position: center;
   background-size: cover;
