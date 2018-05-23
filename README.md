@@ -16,4 +16,4 @@ command and then run
 
 script in node to generate `styles.css`
 
-https://carousel-bixhyxrnlv.now.sh is the link to deployed program on NOW.
+https://carousel-fifbprwexu.now.sh is the link to deployed program on NOW.
