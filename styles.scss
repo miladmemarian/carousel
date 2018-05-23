@@ -1,0 +1,69 @@
+$white: rgb(245, 245, 245);
+$grey: rgb(80, 80, 80);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.carousel {
+  height: 70%;
+  width: 50%;
+  transition: background-image 1s ease-in-out;
+  background-position: center;
+  background-size: cover;
+}
+
+.current {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .title {
+    font-style: italic;
+    text-align: center;
+    color: $white;
+  }
+
+  .sentence {
+    text-align: center;
+    color: $white;
+  }
+
+  .advance {
+    width: 100%;
+    position: absolute;
+
+    .fa-angle-left {
+      float: left;
+      color: $white;
+      margin-left: 1rem;
+    }
+
+    .fa-angle-right {
+      float: right;
+      color: $white;
+      margin-right: 1rem;
+    }
+  }
+
+  .dots {
+    margin: 0 0.3rem;
+    color: rgb(80, 80, 80);
+  }
+
+  .current-slide {
+    color: $white;
+  }
+
+  .shadow {
+    text-shadow: 2px 2px 3px black;
+  }
+}

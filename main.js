@@ -7,17 +7,17 @@ const carousel = {
 
   slides: [
     {
-      source: 'image1.jpg',
+      source: 'sky.jpg',
       title: 'Sky',
       sentence: 'Near Flagstaff, Arizona in the San Francisco Peaks.'
     },
     {
-      source: 'image2.jpg',
+      source: 'mountain.jpg',
       title: 'Mountain',
       sentence: 'Near South Island, New Zealand'
     },
     {
-      source: 'image3.jpg',
+      source: 'desert.jpg',
       title: 'Desert',
       sentence: 'Near Oljato-Monument Valley, United States'
     }
@@ -46,7 +46,9 @@ const carousel = {
     const currentSlide = this.slides[this.current]
 
     $current.classList.add('current')
-    $current.style.backgroundImage = `url("Images/${currentSlide.source}")`
+    this.$carousel.style.backgroundImage = `url("images/${
+      currentSlide.source
+    }")`
 
     const $title = document.createElement('h1')
     $title.classList.add('title')
