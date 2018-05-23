@@ -115,7 +115,7 @@ const carousel = {
       this.renderSlide()
       this.renderIndicators()
       this.nextSlideRight()
-    }, 1000)
+    }, 2000)
   },
 
   renderIndicators: function () {
