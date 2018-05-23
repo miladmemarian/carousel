@@ -100,11 +100,37 @@ const carousel = {
   start: function ($element) {
     this.$carousel = $element
     this.renderSlide()
+    this.renderIndicators()
 
     this.timerId = setInterval(() => {
       this.renderSlide()
+      this.renderIndicators()
       this.nextSlideRight()
     }, 2000)
+  },
+
+  renderIndicators: function () {
+    const $indicators = document.createElement('div')
+
+    for (let i = 0; i < this.slides.length; i++) {
+      const $indicator = document.createElement('span')
+
+      $indicator.classList.add('fa-dot-circle')
+      $indicator.classList.add('fas')
+      $indicator.classList.add('dots')
+
+      if (i === this.current) $indicator.classList.add('current-slide')
+
+      $indicator.addEventListener('click', () => {
+        this.current = i
+        this.renderSlide()
+        this.renderIndicators()
+      })
+
+      $indicators.appendChild($indicator)
+    }
+
+    this.$carousel.firstChild.appendChild($indicators)
   }
 }
 

@@ -56,3 +56,12 @@ body {
 .shadow {
   text-shadow: 2px 2px 3px black;
 }
+
+.dots {
+  margin: 0 0.3rem;
+  color: rgb(80, 80, 80);
+}
+
+.current-slide {
+  color: white;
+}
