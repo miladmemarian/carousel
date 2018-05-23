@@ -97,6 +97,13 @@ const carousel = {
       this.renderSlide()
       this.start(this.$carousel)
     })
+
+    $current.addEventListener('mouseenter', () => {
+      clearInterval(this.timerId)
+    })
+    $current.addEventListener('mouseleave', () => {
+      this.start(this.$carousel)
+    })
   },
 
   start: function ($element) {
@@ -108,7 +115,7 @@ const carousel = {
       this.renderSlide()
       this.renderIndicators()
       this.nextSlideRight()
-    }, 2000)
+    }, 1000)
   },
 
   renderIndicators: function () {
